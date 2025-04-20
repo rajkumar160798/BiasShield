@@ -29,14 +29,16 @@
 
 ### 🔬 SHAP Token Impact
 
-![SHAP Explanation](plots/shap1.png)
+![SHAP Explanation](plots/Shap1.png)
 ![SHAP Explanation](plots/shap2.png)
+![SHAP Explanation](plots/output.png)
+![SHAP Explanation](plots/comment_length.png)
 ---
 
 ### 📄 Downloadable PDF Report
 
 [PDF Report sample](pdf_reports/report_404f578d9025487fa288af71ebe8bf69.pdf)
-
+![SHAP Explanation](plots/toxicity_labels.png)
 
 ---
 
