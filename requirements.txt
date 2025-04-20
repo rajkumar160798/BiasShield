@@ -1,0 +1,13 @@
+pandas==2.2.1
+numpy==1.26.4
+scikit-learn==1.3.2
+matplotlib==3.8.0
+seaborn==0.12.2
+nltk==3.8.1
+wordcloud==1.9.3
+shap==0.44.0
+fpdf==1.7.2
+streamlit==1.44.1  # Optional (if building UI)
+transformers==4.39.3  # For DistilBERT (optional upgrade path)
+torch==2.2.2          # Only if using BERT-based models
+# Note: Ensure that the versions are compatible with your environment.
