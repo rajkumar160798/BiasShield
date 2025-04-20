@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import uuid
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+# ✅ Page config must be first
+st.set_page_config(page_title="BiasShield", page_icon="🛡️")
+
 # --- Load Model & Vectorizer ---
 with open("models/toxicity_model.pkl", "rb") as f:
     model = pickle.load(f)
@@ -39,7 +42,7 @@ def generate_pdf(prompt, score, shap_path):
     return output_path
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="BiasShield", page_icon="🛡️")
+
 st.title("🛡️ BiasShield – AI Toxicity & Bias Analyzer")
 
 st.markdown("Enter a sentence or prompt below. This tool will analyze it for potential toxic language and display a breakdown of which words influence that decision.")
@@ -57,8 +60,12 @@ if st.button("🔍 Analyze"):
         # SHAP explanation
         shap_values = explainer(vec)
         shap_path = f"shap_explanations/force_{uuid.uuid4().hex}.png"
-        shap.plots.text(shap_values[0], display=False, matplotlib=True)
-        plt.savefig(shap_path, bbox_inches='tight')
+
+        # ✅ Use bar plot for individual prediction
+        plt.figure()
+        shap.plots.bar(shap_values[0], show=False)  # No display in Streamlit yet
+        plt.tight_layout()
+        plt.savefig(shap_path)
         plt.close()
 
         # Display results
